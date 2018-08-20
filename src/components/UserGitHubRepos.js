@@ -1,32 +1,48 @@
 import React from 'react';
-import connect from 'react-redux';
-import {GIT_USER_REPO_URL} from '../constant/constant';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getGithubUserRepo} from '../actions/index';
 
 class UserGitHubRepos extends React.Component{
   constructor(props) {
     super(props);
     this.githubUserName = React.createRef();
   }
+  selectRepo = (repoUrl) => {
+    console.log(repoUrl);
+  }
   searchRepo = (event) => {
     event.preventDefault();
     const usename = this.githubUserName.current.value;
-    console.log(this.githubUserName.current.value);
-
-    fetch(GIT_USER_REPO_URL+`/${usename}/repos`)
-    .then( (resp) => resp.json() )
-    .then( (resp) => {
-      console.log(resp);
-    })
-
+    getGithubUserRepo(usename, this.props)
     // this.githubUserName.current.value = '';
 
   }
 
-  getReposList = () => {
-    return (
-      <div>Not found...</div>
-    )
-  }
+  renderList() {
+    console.log(this.props.repos)
+    if (!this.props.hasOwnProperty('repos')){
+      return (
+        <div>Not found...</div>
+      )
+    }
+    return this.props.repos.map((repo) => {
+      // console.log(repo.id);
+        return (
+          
+            <li className="border-bottom"
+                key={repo.id}
+                onClick={() => this.props.selectRepo(repo.url)}
+            >
+            <div>
+              <h3>
+                <a>{repo.name}</a>
+              </h3>
+              </div>
+            </li>
+        );
+    });
+}
 
   render(){
     return(
@@ -39,12 +55,25 @@ class UserGitHubRepos extends React.Component{
           </form>
         </div>
         <hr />
-        <div className="repos-list">
-          {this.getReposList()}
+        <div className="user-repositories-list">
+          <ul>
+            {this.renderList()}
+          </ul>
         </div>
       </div>
     )
   }
 }
 
-export default UserGitHubRepos;
+function mapStateToProps(store) {
+  console.log(store);
+  return {
+      repos: store.userRepos
+  };
+}
+
+// function matchDispatchToProps(dispatch){
+//   return bindActionCreators({selectUserRepo: getGithubUserRepo}, dispatch);
+// }
+
+export default  connect(mapStateToProps) (UserGitHubRepos);

@@ -72,3 +72,16 @@ h1 {
     background: #006699;
  }
 }
+
+.user-repositories-list{
+  ul{
+    list-style: none;
+  }
+  .border-bottom{
+    border-bottom: 1px #e1e4e8 solid;
+  }
+  a{
+    color: #0366d6;
+    text-decoration: none;
+  }
+}
