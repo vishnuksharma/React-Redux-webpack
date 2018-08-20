@@ -32,13 +32,16 @@ class UserGitHubRepos extends React.Component{
           
             <li className="border-bottom"
                 key={repo.id}
-                onClick={() => this.props.selectRepo(repo.url)}
+                onClick={() => this.selectRepo(repo.url)}
             >
-            <div>
-              <h3>
-                <a>{repo.name}</a>
-              </h3>
+            <div className="title-n-btn">
+              <div className="title">
+                <h3>
+                  <a>{repo.name}</a>
+                </h3>
               </div>
+              <div className="select-repo"><button>Select</button></div>
+            </div>
             </li>
         );
     });
