@@ -1,0 +1,1 @@
+export const GIT_USER_REPO_URL = 'https://api.github.com/users';

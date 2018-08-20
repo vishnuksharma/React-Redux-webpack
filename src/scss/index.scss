@@ -1,0 +1,74 @@
+$primary: #006699;
+
+* {
+  box-sizing: border-box;
+}
+*{
+  font-family: arial;
+}
+h2 {
+  color: $primary;
+}
+h1 {
+  color: $primary;
+  font-size: 40px;
+}
+.user-repos{
+  width: 80%;
+  margin: 0 auto;
+}
+.user-repo-form{
+  .title{
+    text-align: center;
+    width: 80%;
+    transition: width 0.4s ease-in-out;
+    text-transform: uppercase;
+    &::before{
+      content: 'G';
+      color: #EA4335;
+
+    }
+    &::after{
+      content: 'B';
+      color: #EA4335;
+
+    }
+  }
+  .githubform{
+    input[type=text] {
+      padding: 10px;
+      font-size: 17px;
+      border: 1px solid grey;
+      float: left;
+      width: 80%;
+      background: #f1f1f1;
+      transition: width 0.4s ease-in-out;
+    }
+    button {
+      float: left;
+      width: 20%;
+      padding: 10px;
+      background: #2196F3;
+      color: white;
+      font-size: 17px;
+      border: 1px solid grey;
+      border-left: none;
+      cursor: pointer;
+    }
+    button:hover {
+        background: #0b7dda;
+    }  
+    &::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+  }
+  
+  input[type=text]:focus {
+    width: 80%;
+  }
+  input[type=text]:focus ~ button {
+    background: #006699;
+ }
+}
