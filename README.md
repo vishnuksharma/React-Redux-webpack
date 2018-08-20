@@ -2,7 +2,7 @@ This is a simple todo list example of react(16.4.1), react-redux(5.0.7) along wi
 
 To use this repo follow
 
- git clone https://github.com/nawazsk/React-Redux-Webpack-TodoList.git
+ git clone https://github.com/nawazsk/React-Redux-webpack.git
 
  npm istall
 
