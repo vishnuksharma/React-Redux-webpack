@@ -37,3 +37,18 @@ export const getGithubUserRepo = (user, props) => {
     
   }
 };
+
+
+
+export const setRepoName = (name, props) => {
+  if (name.url){
+    fetch(name.url + `/issues`)
+        .then(resp => resp.json())
+        .then(issuesList => {
+          props.dispatch({  type: "GET_REPO_ISSUES", payload: {repoDetail : name, issuesList: issuesList} })
+      });    
+  }
+};
+
+
+

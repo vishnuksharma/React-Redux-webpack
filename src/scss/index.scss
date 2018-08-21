@@ -13,9 +13,85 @@ h1 {
   color: $primary;
   font-size: 40px;
 }
-.user-repos{
-  width: 80%;
+.svg-icon{
+  vertical-align: middle;
+}
+.container{
+  max-width: 1024px;
   margin: 0 auto;
+}
+/* Style the list */
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+.btn-group{
+  button {
+    background-color: #4CAF50; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 12px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+  }
+  button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+  /* Clear floats (clearfix hack) */
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Add a background color on hover */
+  button:hover {
+    background-color: #3e8e41;
+  }
+} 
+
+
+h2{
+  font-size: 18px;
+  color: #586069;
+}
+.author{
+  font-weight: normal;
+}
+body{
+  background-color: #fafbfc;
+}
+a{
+  color: #0366d6;
+  text-decoration: none;
+  cursor: pointer;
 }
 .user-repo-form{
   .title{
@@ -45,15 +121,7 @@ h1 {
       transition: width 0.4s ease-in-out;
     }
     button {
-      float: left;
       width: 20%;
-      padding: 10px;
-      background: #2196F3;
-      color: white;
-      font-size: 17px;
-      border: 1px solid grey;
-      border-left: none;
-      cursor: pointer;
     }
     button:hover {
         background: #0b7dda;
@@ -85,26 +153,104 @@ h1 {
       display: inline-block;
     }
   }
-  a{
-    color: #0366d6;
-    text-decoration: none;
-    cursor: pointer;
-  }
   .select-repo{
     float: right;
     margin-top: 10px;
   }
 }
 
-button {
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
-}
-button:hover {
-    background: #0b7dda;
+.user-repos-issues{
+  ul{
+    list-style: none;
+  }
+  .border-bottom{
+    border-bottom: 1px #e1e4e8 solid;
+  }
+  .issue-desc{
+    font-size: 12px;
+    color: #586069;
+    font-weight: normal;
+    margin-left: 20px;
+  }
+  .open.octicon{
+    color: #28a745;
+    fill: currentColor;
+    vertical-align: middle;
+  }
+  .issue-title{
+    font-weight: 600;
+    font-size: 16px;
+    color: #24292e;
+  }
+  .tabs{
+    // min-width: 320px;
+    // max-width: 800px;
+    // padding: 50px;
+    // margin: 0 auto;
+    background: #fff;
+    .tab-issue-icon{
+      vertical-align: middle;
+    }
+    .tab-input{
+      display: none;
+    }
+    .tab-content{
+      display: none;
+      padding: 20px 0 0;
+      border-top: 1px solid #ddd;
+    }
+    label {
+      display: inline-block;
+      margin: 0 0 -1px;
+      padding: 15px 25px;
+      font-weight: 600;
+      text-align: center;
+      color: #bbb;
+      border: 1px solid transparent;
+    }
+    
+    label:before {
+      font-family: fontawesome;
+      font-weight: normal;
+      margin-right: 10px;
+    }
+  
+    // label[for*='1']:before { content: '\f1cb'; }
+    // label[for*='2']:before { content: '\f17d'; }
+    // label[for*='3']:before { content: '\f16b'; }
+    // label[for*='4']:before { content: '\f1a9'; }
+  
+    label:hover {
+      color: #888;
+      cursor: pointer;
+    }
+  
+    input:checked + label {
+      color: #555;
+      border: 1px solid #ddd;
+      border-top: 2px solid orange;
+      border-bottom: 1px solid #fff;
+    }
+  
+    #tab1:checked ~ #content1, {
+      display: block;
+    }
+  
+    @media screen and (max-width: 650px) {
+      label {
+        font-size: 0;
+      }
+      label:before {
+        margin: 0;
+        font-size: 18px;
+      }
+    }
+  
+    @media screen and (max-width: 400px) {
+      label {
+        padding: 15px;
+      }
+    }
+  }
+  
 }
