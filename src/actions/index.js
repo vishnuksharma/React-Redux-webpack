@@ -28,7 +28,7 @@ export const visibilityFilters = {
 export const getGithubUserRepo = (user, props) => {
   // console.log(user);
   if (user){
-    fetch(GIT_USER_REPO_URL + `/${user}/repos`)
+    fetch(GIT_USER_REPO_URL + `/${user}/repos?page=1&per_page=100`)
         .then(resp => resp.json())
         .then(userRepos => {
           // console.log(userRepos);
