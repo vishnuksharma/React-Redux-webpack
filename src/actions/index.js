@@ -46,8 +46,23 @@ export const setRepoName = (name, props) => {
         .then(resp => resp.json())
         .then(issuesList => {
           props.dispatch({  type: "GET_REPO_ISSUES", payload: {repoDetail : name, issuesList: issuesList} })
+      })
+      .catch((e)=>{
+        props.dispatch({  type: "GET_REPO_ISSUES_ERROR", payload: e })
       });    
   }
+  // if (name.url){
+  //   return (dispatch) => {
+  //     fetch(name.url + `/issues`)
+  //         .then(resp => resp.json())
+  //         .then(issuesList => {
+  //           console.log(issuesList);
+  //           dispatch({  type: "GET_REPO_ISSUES", payload: {repoDetail : name, issuesList: issuesList} })
+  //       });
+  //     // You might also dispatch 'FETCH_FAILED'
+  //     }
+  // }  
+
 };
 
 

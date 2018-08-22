@@ -93,6 +93,11 @@ a{
   text-decoration: none;
   cursor: pointer;
 }
+.btn-primary {
+  color: #fff;
+  background-color: #28a745;
+  background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+}
 .user-repo-form{
   .title{
     text-align: center;
@@ -253,4 +258,116 @@ a{
     }
   }
   
+}
+
+.filter-wrapper{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  margin: 15px 0;
+  display: inline-block;
+  width: 100%;
+  .new-issue{
+    float: right;
+  }
+  .dropbtn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid rgba(27,31,35,0.2);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #eff3f6;
+    background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+    &:hover{
+      background-color: #e6ebf1;
+      background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
+      background-position: -.5em;
+      border-color: rgba(27,31,35,0.35);
+    }
+    &::after{
+      display: inline-block;
+      width: 1px;
+      height: 2px;
+      vertical-align: -5px;
+      content: "";
+      border: 5px solid;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      margin-left: 4px;
+    }
+  }
+
+  .dropbtn:hover, .dropbtn:focus {
+      background-color: #2980B9;
+  }
+
+  .dropdown {
+      position: relative;
+      display: inline-block;
+  }
+
+  .dropdown-content {
+    ul, ol {
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    position: absolute;
+    top: 34px;
+    left: 0;
+    display: none;
+    width: 220px;
+    margin-top: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #586069;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(27,31,35,0.15);
+    border-radius: 3px;
+    box-shadow: 0 3px 12px rgba(27,31,35,0.15);
+
+    .select-menu-item {
+      display: block;
+      padding: 12px 8px 12px 30px;
+      overflow: hidden;
+      color: inherit;
+      cursor: pointer;
+      border-bottom: 1px solid #eaecef;
+      text-align: left;
+      background-color: #fff;
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+    }
+  }
+
+  .dropdown a:hover {background-color: #ddd;}
+
+  .show {display: block;}
+  
+  input[type=text] {
+    min-height: 34px;
+    padding: 6px 8px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #24292e;
+    vertical-align: middle;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #d1d5da;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    outline: none;
+    width: 320px;
+    box-shadow: inset 0 1px 2px rgba(27,31,35,0.075);
+  }
 }

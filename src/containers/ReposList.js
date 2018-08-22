@@ -10,7 +10,7 @@ class ReposList extends React.Component {
     this.githubUserName = React.createRef();
   }
   selectRepo = repo => {
-    console.log(repo.name);
+    // console.log(repo.name);
     setRepoName(repo, this.props)
     this.props.history.push(`/issues/${repo.name}`);
 
@@ -65,6 +65,7 @@ class ReposList extends React.Component {
               ref={this.githubUserName}
               type="text"
               name="username"
+              defaultValue={this.props.githubuser}
               placeholder="Enter github user name..."
             />
             <div className="btn-group">
@@ -84,7 +85,8 @@ class ReposList extends React.Component {
 function mapStateToProps(store) {
   console.log(store);
   return {
-    repos: store.userRepos.userRepos
+    repos: store.userRepos.userRepos,
+    githubuser: store.userRepos.githubuser
   };
 }
 

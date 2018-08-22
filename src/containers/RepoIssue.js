@@ -10,7 +10,7 @@ class ReposIssue extends React.Component{
   }
   
   renderIssuesList = () => {
-    console.log(this.props);
+    // console.log(this.props);
     
     return this.props.repoDetail_Issues.issuesList.map(issue => {
       // console.log(repo.id);
@@ -34,13 +34,21 @@ class ReposIssue extends React.Component{
       );
     });
   }
-  
+  handleClick = (event) =>{
+    const allClass = document.querySelector('.dropdown-content').className.split(' ');
+    if (allClass.indexOf('show') === -1){
+      document.querySelector('.dropdown-content').classList.add('show');
+    } else {
+      document.querySelector('.dropdown-content').classList.remove('show');
+    }
+    
+  }
   render(){
     if (!this.props.repoDetail_Issues){
       return(<div>Loading...</div>);
     }
     const repoDetail = this.props.repoDetail_Issues.repoDetail;
-    console.log(repoDetail);
+    // console.log(repoDetail);
     return(
       <div className="user-repos-issues">
         <ul className="breadcrumb">
@@ -49,6 +57,23 @@ class ReposIssue extends React.Component{
           &nbsp;<Link to="/">{repoDetail.owner.login}</Link></li>
           <li><a>{repoDetail.name}</a></li>
         </ul>
+        <div className="filter-wrapper">
+          <div className="dropdown">
+          <button onClick={this.handleClick} className="dropbtn">Filters</button>
+          <input type="text" id="fname" name="firstname" placeholder="Search all issues"/>
+            <div id="myDropdown" className="dropdown-content">
+              <ul>
+                <li><a className="select-menu-item">Open issues and pull requests</a> </li>
+                <li><a className="select-menu-item">Your issues</a></li>
+                <li><a className="select-menu-item">Your pull requests</a></li>
+                <li><a className="select-menu-item">Everything assigned to you</a></li>
+                <li><a className="select-menu-item">Everything mentioning you</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="new-issue btn-group">
+          <button className="btn-primary">New Issue</button></div>
+        </div>
         <main className="tabs">
           <input className="tab-input" id="tab1" type="radio" name="tabs" defaultChecked={true} />
           <label htmlFor="tab1">              
