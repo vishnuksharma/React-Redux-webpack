@@ -27,7 +27,7 @@ class ReposList extends React.Component {
 
   renderList() {
     // console.log(this.props.repos);
-    if (!this.props.hasOwnProperty("repos")) {
+    if (!this.props.hasOwnProperty("repos") || this.props.api_error !== null) {
       return <div>Not found...</div>;
     }
     return this.props.repos.map(repo => {
@@ -86,7 +86,8 @@ function mapStateToProps(store) {
   console.log(store);
   return {
     repos: store.userRepos.userRepos,
-    githubuser: store.userRepos.githubuser
+    githubuser: store.userRepos.githubuser,
+    api_error: store.userRepos.api_error
   };
 }
 

@@ -9,6 +9,7 @@ const userRepos = (state=initialState, action) => {
         case "GET_USER_REPOS" : 
           return{
             ...state,
+            api_error: null,
             githubuser: action.payload[0].owner.login,
             userRepos: action.payload
           }
@@ -17,6 +18,7 @@ const userRepos = (state=initialState, action) => {
         // console.log(action.payload, 'payload');
           return{
             ...state,
+            api_error: null,
             repoAndIssuesList: action.payload
           }
           break; 
